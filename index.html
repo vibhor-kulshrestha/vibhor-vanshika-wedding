@@ -2757,9 +2757,7 @@ function shareWeddingInvitation() {
 
   if (navigator.share) {
     navigator.share({
-      title: "Vibhor & Vanshika’s Wedding Invitation",
-      text: shareText,
-      url: "https://vibhorvanshika.online/"
+      text: shareText
     }).catch(() => {});
   } else {
     navigator.clipboard.writeText(shareText).then(() => {
