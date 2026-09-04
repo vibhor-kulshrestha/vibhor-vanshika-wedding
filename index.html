@@ -27,7 +27,7 @@
 <meta name="twitter:url" content="https://vibhorvanshika.online/"/>
 <meta name="twitter:title" content="Vibhor & Vanshika — Wedding Invitation"/>
 <meta name="twitter:description" content="We joyfully invite you to celebrate the wedding ceremony of Vibhor & Vanshika in Mathura & Agra."/>
-<meta name="twitter:image" content="https://vibhorvanshika.online/og-preview.jpg"/>
+<meta name="twitter:image" content="https://vibhorvanshika.online/og-preview.jpg?v=2"/>
 
 <!-- Google Fonts Preload & Stylesheets -->
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -142,7 +142,6 @@ body {
   transform: translateY(-4px) scale(1.015);
 }
 
-/* Envelope Back Face */
 .envelope-back {
   position: absolute;
   inset: 0;
@@ -151,7 +150,6 @@ body {
   border: 1px solid rgba(197, 155, 39, 0.4);
 }
 
-/* Clean Vertical Separation inside Envelope (No Overlap With Wax Seal) */
 .envelope-pattern {
   position: absolute;
   inset: 10px;
@@ -210,7 +208,6 @@ body {
   margin-top: 0.35rem;
 }
 
-/* Top Flap */
 .envelope-flap-top {
   position: absolute;
   top: 0;
@@ -231,7 +228,6 @@ body {
   z-index: 1;
 }
 
-/* Wax Seal Monogram */
 .wax-seal {
   position: absolute;
   top: 125px;
@@ -447,7 +443,6 @@ section {
   text-align: center;
 }
 
-/* Invitation Frame & Cards */
 .invitation-card {
   background: rgba(255, 255, 255, 0.9);
   border: 1px solid var(--border-gold);
@@ -473,7 +468,6 @@ section {
   pointer-events: none;
 }
 
-/* Corner Ornaments */
 .corner-ornament {
   position: absolute;
   width: 38px;
@@ -486,7 +480,6 @@ section {
 .corner-bl { bottom: 10px; left: 10px; transform: scaleY(-1); }
 .corner-br { bottom: 10px; right: 10px; transform: scale(-1); }
 
-/* Divider & Motifs */
 .ornament-divider {
   display: flex;
   align-items: center;
@@ -591,7 +584,6 @@ section {
   margin-bottom: 0.6rem;
 }
 
-/* Hosts Welcoming Box (Bilingual Typography) */
 .hosts-invitation-box {
   margin: 1.2rem auto 0.8rem;
   max-width: 680px;
@@ -1082,7 +1074,6 @@ section {
   margin-top: 0.2rem;
 }
 
-/* Event Action Button Group: Mobile-First Full Width */
 .event-actions-group {
   display: flex;
   flex-direction: column;
@@ -1221,7 +1212,6 @@ section {
   margin-top: 0.4rem;
 }
 
-/* Colons hidden on mobile to prevent ugly 2x2 wrapping */
 .countdown-sep {
   display: none;
   font-family: 'Playfair Display', serif;
@@ -1626,7 +1616,7 @@ section {
 }
 
 /* ══════════════════════════════════════════════════
-   FOOTER & CLOSING
+   INVITATION FOOTER
 ══════════════════════════════════════════════════ */
 footer {
   background: linear-gradient(180deg, var(--cream-bg) 0%, #F5EADB 100%);
@@ -1923,7 +1913,6 @@ footer {
             <path d="M20 30 Q70 65 120 30 Q125 45 70 58 Q15 45 20 30 Z" fill="url(#goldGaneshPrimary)"/>
             <ellipse cx="70" cy="30" rx="50" ry="10" fill="url(#goldGaneshSecondary)"/>
             <ellipse cx="70" cy="30" rx="42" ry="7" fill="#6E1224" opacity="0.6"/>
-            <!-- Engraving Details -->
             <path d="M35 34 Q70 48 105 34" stroke="#FFF2BF" stroke-width="1.2" fill="none" opacity="0.7"/>
           </svg>
         </div>
@@ -1987,7 +1976,6 @@ footer {
         </div>
       </div>
 
-      <!-- Sacred Marriage Quote -->
       <div style="margin-top:2rem;padding:1.4rem 1.6rem;background:rgba(255,246,247,0.7);border:1px dashed var(--border-gold);border-radius:8px;">
         <p style="font-style:italic;font-size:1.05rem;color:var(--primary-crimson);line-height:1.75;">
           "परम्पराओं की धरोहर, प्रेम का पवित्र बंधन और बड़ों का शुभाशीष — दो हृदयों का यह पावन मिलन युगों-युगों तक सुखदायी रहे।"
@@ -2113,7 +2101,7 @@ footer {
 
       </div>
 
-      <!-- Wedding Countdown Clock (Single Row on Mobile) -->
+      <!-- Wedding Countdown Clock -->
       <div class="countdown-container reveal delay-3">
         <div class="countdown-headline">Counting Down to the Auspicious Day · पावन लग्न की प्रतीक्षा</div>
         <div class="countdown-flex">
@@ -2161,7 +2149,6 @@ footer {
       </p>
 
       <div class="wishes-wrapper">
-        <!-- Wish Submission Form -->
         <div class="wish-form-card">
           <form id="wishForm" onsubmit="submitGuestWish(event)">
             <div class="form-group">
@@ -2191,7 +2178,6 @@ footer {
           </form>
         </div>
 
-        <!-- Wishes List Display (Real Guest Wishes Only) -->
         <div class="wishes-display-scroll" id="wishesList">
           <div class="wish-empty-state" id="wishesEmptyState" style="text-align:center;padding:2.5rem 1rem;color:var(--text-muted);">
             <div style="font-size:2rem;margin-bottom:0.5rem;">🌸</div>
@@ -2222,7 +2208,6 @@ footer {
         इस मांगलिक प्रसंग पर आप सभी स्नेही स्वजनों का स्वागत करने हेतु हम सब उत्कंठित हैं।
       </p>
 
-      <!-- Compliments Two-Column Layout -->
       <div class="compliments-grid">
         
         <!-- Left: Kulshrestha Parivaar -->
@@ -2261,7 +2246,6 @@ footer {
 
       </div>
 
-      <!-- Eagerly Waiting to Welcome You -->
       <div class="eagerly-waiting-box reveal delay-3">
         <h3 class="eagerly-waiting-title">Eagerly Waiting to Welcome You</h3>
         <p class="eagerly-waiting-subtitle">दर्शनाभिलाषी एवं स्नेही</p>
@@ -2280,7 +2264,6 @@ footer {
         <span class="all-family-tag">& समस्त कुलश्रेष्ठ परिवार</span>
       </div>
 
-      <!-- RSVP Host Contacts Divider -->
       <div class="ornament-divider" style="margin-top:2.8rem;">
         <span class="ornament-symbol">❧</span>
       </div>
@@ -2338,7 +2321,6 @@ footer {
 
       </div>
 
-      <!-- Forward to Family Button -->
       <div class="share-invite-wrap">
         <button class="event-btn event-btn-primary" onclick="shareWeddingInvitation()" style="max-width:320px;">
           <span>📲 Forward to Family</span>
@@ -2362,9 +2344,46 @@ footer {
 </footer>
 
 <!-- ══════════════════════════════════════════════════
-     JAVASCRIPT: INTERACTIVITY, AUDIO, CANVASES & MORE
+     FIREBASE SDK (REALTIME GLOBAL BACKEND)
+══════════════════════════════════════════════════ -->
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
+<!-- ══════════════════════════════════════════════════
+     JAVASCRIPT: REALTIME SYNC, CANVAS, AUDIO & UTILS
 ══════════════════════════════════════════════════ -->
 <script>
+// ══════════════════════════════════════════════════
+// 0. GLOBAL REALTIME & EMAIL CONFIGURATION
+// ══════════════════════════════════════════════════
+// Step 1: Create a free Firebase project: https://console.firebase.google.com
+// Step 2: Enable Cloud Firestore in "Test Mode" and paste credentials:
+const firebaseConfig = {
+  apiKey: "AIzaSyDqwNwud2aM_9kiVBk2fS_KxEzAjAMsQOs",
+  authDomain: "vibhor-vanshika-wedding.firebaseapp.com",
+  projectId: "vibhor-vanshika-wedding",
+  storageBucket: "vibhor-vanshika-wedding.firebasestorage.app",
+  messagingSenderId: "22552015752",
+  appId: "1:22552015752:web:87ad1d429333ab5f69403d"
+};
+
+// Step 3: Get your free Web3Forms Access Key at https://web3forms.com
+// (Enter your email to receive instant notification of every wedding wish):
+const WEB3FORMS_ACCESS_KEY = "c5131725-292b-4ce7-8e8a-f1f9a54b1297";
+
+let db = null;
+const isFirebaseReady = typeof firebase !== 'undefined' && firebaseConfig.apiKey && !firebaseConfig.apiKey.includes('PASTE_');
+
+if (isFirebaseReady) {
+  try {
+    firebase.initializeApp(firebaseConfig);
+    db = firebase.firestore();
+    console.log('✨ Firebase Live Realtime Database Connected!');
+  } catch (err) {
+    console.warn('Firebase init error, using local fallback:', err);
+  }
+}
+
 // ══════════════════════════════════════════════════
 // 1. HIGH-PERFORMANCE PETAL & GOLDEN DUST CANVAS
 // ══════════════════════════════════════════════════
@@ -2379,7 +2398,6 @@ function resizeCanvas() {
 resizeCanvas();
 window.addEventListener('resize', resizeCanvas);
 
-// Interactive mouse breeze
 let mouseX = W / 2;
 let mouseY = H / 2;
 let mouseWindX = 0;
@@ -2415,7 +2433,6 @@ class PetalParticle {
     this.flutterAngle = Math.random() * Math.PI * 2;
     this.flutterSpeed = Math.random() * 0.03 + 0.01;
 
-    // Palette of festive rose & marigold hues
     const colors = [
       '#B83B5E', '#D97D8F', '#FCECEF', '#E8A598', '#C59B27', '#F7D070', '#8F182D'
     ];
@@ -2550,10 +2567,30 @@ function toggleAudioPlayback() {
 }
 
 // ══════════════════════════════════════════════════
-// 3. INTERACTIVE SACRED DIYA LIGHTING
+// 3. INTERACTIVE SACRED DIYA (REALTIME GLOBAL SYNC)
 // ══════════════════════════════════════════════════
 let diyaLit = false;
 let diyaCountVal = 482;
+
+function initDiyaRealtime() {
+  if (!db) return;
+  const diyaDoc = db.collection('wedding_stats').doc('diya');
+  diyaDoc.onSnapshot((doc) => {
+    if (doc.exists) {
+      const data = doc.data();
+      if (typeof data.count === 'number') {
+        diyaCountVal = data.count;
+        const countEl = document.getElementById('diyaCount');
+        if (countEl) countEl.textContent = diyaCountVal;
+      }
+    } else {
+      diyaDoc.set({ count: 482 }, { merge: true }).catch(() => {});
+    }
+  }, (err) => {
+    console.log('Diya realtime sync fallback to local mode:', err);
+  });
+}
+initDiyaRealtime();
 
 function lightSacredDiya(e) {
   if(e) e.stopPropagation();
@@ -2565,10 +2602,20 @@ function lightSacredDiya(e) {
   if (!diyaLit) {
     diyaLit = true;
     diyaWidget.classList.add('diya-lit');
-    diyaCountVal += 1;
-    diyaCount.textContent = diyaCountVal;
     diyaBtnText.textContent = 'Diya Lit with Blessings 🪔';
     blessingMsg.classList.add('visible');
+
+    if (db) {
+      db.collection('wedding_stats').doc('diya').update({
+        count: firebase.firestore.FieldValue.increment(1)
+      }).catch(() => {
+        diyaCountVal += 1;
+        if (diyaCount) diyaCount.textContent = diyaCountVal;
+      });
+    } else {
+      diyaCountVal += 1;
+      if (diyaCount) diyaCount.textContent = diyaCountVal;
+    }
 
     const rect = diyaWidget.getBoundingClientRect();
     burstConfetti(rect.left + rect.width / 2, rect.top + rect.height / 2);
@@ -2637,7 +2684,7 @@ function updateWeddingCountdown() {
 
   const days = Math.floor(diff / (1000 * 60 * 60 * 24));
   const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+  const mins = Math.floor((diff % (1000 * 60)) / (1000 * 60));
   const secs = Math.floor((diff % (1000 * 60)) / 1000);
 
   const dEl = document.getElementById('cd-days');
@@ -2654,7 +2701,7 @@ updateWeddingCountdown();
 setInterval(updateWeddingCountdown, 1000);
 
 // ══════════════════════════════════════════════════
-// 6. GUESTBOOK WISHES & PERSISTENCE
+// 6. GUESTBOOK WISHES & EMAIL NOTIFICATIONS
 // ══════════════════════════════════════════════════
 let currentSelectedTag = '🌸 शुभ विवाह';
 
@@ -2663,6 +2710,35 @@ function selectWishTag(btn, tag) {
   btn.classList.add('selected');
   currentSelectedTag = tag;
 }
+
+function initWishesRealtime() {
+  if (!db) {
+    loadSavedWishesLocal();
+    return;
+  }
+  db.collection('wedding_wishes')
+    .orderBy('timestamp', 'desc')
+    .limit(100)
+    .onSnapshot((snapshot) => {
+      const list = document.getElementById('wishesList');
+      const emptyState = document.getElementById('wishesEmptyState');
+      if (snapshot.empty) {
+        if (emptyState) emptyState.style.display = 'block';
+        return;
+      }
+      if (emptyState) emptyState.style.display = 'none';
+      if (list) {
+        list.innerHTML = '';
+        snapshot.forEach((doc) => {
+          renderWishItem(doc.data(), false);
+        });
+      }
+    }, (err) => {
+      console.warn('Wishes realtime sync fallback to local mode:', err);
+      loadSavedWishesLocal();
+    });
+}
+initWishesRealtime();
 
 function submitGuestWish(e) {
   e.preventDefault();
@@ -2677,20 +2753,67 @@ function submitGuestWish(e) {
     author: name,
     tag: currentSelectedTag,
     body: message,
-    date: new Date().toISOString()
+    timestamp: db ? firebase.firestore.FieldValue.serverTimestamp() : new Date().toISOString()
   };
 
-  const savedWishes = JSON.parse(localStorage.getItem('vv_wedding_wishes') || '[]');
-  savedWishes.unshift(wishObj);
-  localStorage.setItem('vv_wedding_wishes', JSON.stringify(savedWishes));
+  if (db) {
+    db.collection('wedding_wishes').add(wishObj).catch((err) => {
+      console.error('Error saving wish to Firestore:', err);
+      saveWishLocal(wishObj);
+    });
+  } else {
+    saveWishLocal(wishObj);
+  }
 
-  renderWishItem(wishObj, true);
+  // Send Email Notification to Host Inbox
+  sendEmailNotification(name, currentSelectedTag, message);
 
   nameInput.value = '';
   msgInput.value = '';
 
   burstConfetti(window.innerWidth / 2, window.innerHeight / 2);
   showToast('💐 आपके मंगल वचन वर-वधू को प्राप्त हो गए हैं!');
+}
+
+function saveWishLocal(wishObj) {
+  const savedWishes = JSON.parse(localStorage.getItem('vv_wedding_wishes') || '[]');
+  savedWishes.unshift(wishObj);
+  localStorage.setItem('vv_wedding_wishes', JSON.stringify(savedWishes));
+  renderWishItem(wishObj, true);
+}
+
+function loadSavedWishesLocal() {
+  const savedWishes = JSON.parse(localStorage.getItem('vv_wedding_wishes') || '[]');
+  if (savedWishes.length > 0) {
+    const emptyState = document.getElementById('wishesEmptyState');
+    if (emptyState) emptyState.style.display = 'none';
+    savedWishes.forEach(w => renderWishItem(w, false));
+  }
+}
+
+function sendEmailNotification(guestName, tag, message) {
+  if (!WEB3FORMS_ACCESS_KEY || WEB3FORMS_ACCESS_KEY.includes('PASTE_')) {
+    console.log('Web3Forms key not configured yet. Skipping email alert.');
+    return;
+  }
+  fetch('https://api.web3forms.com/submit', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    },
+    body: JSON.stringify({
+      access_key: WEB3FORMS_ACCESS_KEY,
+      subject: `🌸 New Wedding Blessing from ${guestName} (${tag})`,
+      from_name: "Vibhor & Vanshika Wedding Invite",
+      "Guest Name": guestName,
+      "Blessing Tag": tag,
+      "Heartfelt Message": message,
+      "Date": new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
+    })
+  }).catch((err) => {
+    console.warn('Email notification error:', err);
+  });
 }
 
 function renderWishItem(wish, prepend = false) {
@@ -2714,16 +2837,6 @@ function renderWishItem(wish, prepend = false) {
     list.appendChild(bubble);
   }
 }
-
-function loadSavedWishes() {
-  const savedWishes = JSON.parse(localStorage.getItem('vv_wedding_wishes') || '[]');
-  if (savedWishes.length > 0) {
-    const emptyState = document.getElementById('wishesEmptyState');
-    if (emptyState) emptyState.style.display = 'none';
-    savedWishes.forEach(w => renderWishItem(w, false));
-  }
-}
-loadSavedWishes();
 
 function escapeHtml(text) {
   const div = document.createElement('div');
