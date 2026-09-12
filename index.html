@@ -977,29 +977,33 @@ section {
   background: transparent;
   border: none;
   border-radius: 22px;
-  padding: 0.5rem 0.9rem;
+  padding: 0.45rem 0.75rem;
   cursor: pointer;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 0.15rem;
   transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
   color: var(--text-muted);
   font-family: 'Josefin Sans', sans-serif;
   position: relative;
+  flex: 1 1 0;
+  min-width: 0;
 }
 
 .itinerary-tab-btn .tab-badge {
-  font-size: 0.62rem;
-  letter-spacing: 0.08em;
+  font-size: 0.6rem;
+  letter-spacing: 0.05em;
   font-weight: 600;
   text-transform: uppercase;
   color: var(--gold-dark);
+  white-space: nowrap;
 }
 
 .itinerary-tab-btn .tab-date {
   font-family: 'Playfair Display', serif;
-  font-size: 0.92rem;
+  font-size: 0.86rem;
   font-weight: 700;
   color: var(--text-ink);
   white-space: nowrap;
@@ -1016,18 +1020,23 @@ section {
 }
 
 @media (max-width: 440px) {
+  .itinerary-tabs-wrap {
+    margin: 1.1rem auto 0.85rem;
+  }
   .itinerary-tabs {
-    gap: 0.25rem;
+    gap: 0.15rem;
     padding: 0.2rem;
+    width: 100%;
   }
   .itinerary-tab-btn {
-    padding: 0.45rem 0.55rem;
+    padding: 0.4rem 0.25rem;
   }
   .itinerary-tab-btn .tab-badge {
-    font-size: 0.56rem;
+    font-size: 0.52rem;
+    letter-spacing: 0.02em;
   }
   .itinerary-tab-btn .tab-date {
-    font-size: 0.78rem;
+    font-size: 0.74rem;
   }
 }
 
@@ -1617,7 +1626,7 @@ section {
   background: rgba(255, 255, 255, 0.94);
   border: 1px solid var(--border-gold);
   border-radius: 12px;
-  padding: 0.85rem 1.1rem;
+  padding: 0.8rem 1rem;
   box-shadow: var(--shadow-subtle);
   transition: transform 0.3s ease;
   display: flex;
@@ -1625,6 +1634,7 @@ section {
   align-items: center;
   justify-content: space-between;
   text-align: left;
+  gap: 0.6rem;
 }
 
 @media (min-width: 768px) {
@@ -1632,6 +1642,7 @@ section {
     flex-direction: column;
     text-align: center;
     padding: 1.4rem 1rem;
+    gap: 0;
   }
   .rsvp-contact-role {
     margin-bottom: 0.9rem;
@@ -1640,38 +1651,45 @@ section {
 
 .rsvp-contact-info {
   flex: 1;
+  min-width: 0;
 }
 
 .rsvp-contact-name {
   font-family: 'Playfair Display', serif;
-  font-size: 1.15rem;
+  font-size: clamp(0.95rem, 3.8vw, 1.15rem);
   color: var(--primary-crimson);
   margin-bottom: 0.15rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .rsvp-contact-role {
   font-family: 'Josefin Sans', sans-serif;
-  font-size: 0.62rem;
-  letter-spacing: 0.18em;
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
   color: var(--gold-dark);
   text-transform: uppercase;
   margin-bottom: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .rsvp-actions-row {
   display: flex;
-  gap: 0.45rem;
+  gap: 0.35rem;
   flex-shrink: 0;
 }
 
 .contact-action-btn {
   display: inline-flex;
   align-items: center;
-  gap: 0.3rem;
+  gap: 0.25rem;
   font-family: 'Josefin Sans', sans-serif;
-  font-size: 0.72rem;
-  letter-spacing: 0.08em;
-  padding: 0.45rem 0.8rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.05em;
+  padding: 0.42rem 0.65rem;
   border-radius: 20px;
   text-decoration: none;
   transition: all 0.25s ease;
@@ -2062,8 +2080,8 @@ footer {
           <h3 class="family-person">Vanshika Kulshrestha</h3>
           <p class="family-relation">आत्मजा (Cherished Daughter of)</p>
           <p class="family-parents">
-            श्रीमती रितिका एवं स्वर्गीय श्री सुशील कुलश्रेष्ठ<br/>
-            <span style="font-size:0.95rem;color:var(--text-muted);">Mrs. Ritika & Late Mr. Susheel Kulshreshtha</span>
+            श्रीमती रितिका कुलश्रेष्ठ एवं स्वर्गीय श्री सुशील कुलश्रेष्ठ<br/>
+            <span style="font-size:0.95rem;color:var(--text-muted);">Mrs. Ritika Kulshreshtha & Late Mr. Susheel Kulshreshtha</span>
           </p>
         </div>
       </div>
