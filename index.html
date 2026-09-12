@@ -415,22 +415,22 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 3rem 1rem;
+  padding: 2.2rem 1rem;
   overflow: hidden;
 }
 
 #section-0 {
   min-height: 100svh;
-  padding: 4.5rem 1rem 3.5rem;
+  padding: 3.8rem 1rem 2.8rem;
 }
 
 @media (min-width: 768px) {
   section {
-    padding: 5rem 1.5rem;
+    padding: 3.8rem 1.5rem;
   }
   #section-0 {
     min-height: 100vh;
-    padding: 5.5rem 1.5rem;
+    padding: 4.8rem 1.5rem;
   }
 }
 
@@ -450,12 +450,12 @@ section {
   box-shadow: var(--shadow-card);
   backdrop-filter: blur(12px);
   position: relative;
-  padding: 2.2rem 1.2rem;
+  padding: 1.8rem 1.1rem;
 }
 
 @media (min-width: 768px) {
   .invitation-card {
-    padding: 3.5rem 2.5rem;
+    padding: 2.8rem 2.2rem;
   }
 }
 
@@ -734,7 +734,7 @@ section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1.8rem 0.5rem;
+  padding: 1rem 0.5rem 0.5rem;
 }
 
 .diya-widget {
@@ -953,28 +953,109 @@ section {
 }
 
 /* ══════════════════════════════════════════════════
-   SECTION 4: EVENTS & ITINERARY (MOBILE-FIRST BUTTONS)
+   SECTION 4: EVENTS & ITINERARY (INTERACTIVE TABS & COMPACT CARDS)
 ══════════════════════════════════════════════════ */
-.events-cards-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.8rem;
-  margin-top: 2rem;
-  text-align: left;
+.itinerary-tabs-wrap {
+  margin: 1.4rem auto 1rem;
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
-@media (min-width: 768px) {
-  .events-cards-grid {
-    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-    gap: 1.5rem;
+.itinerary-tabs {
+  display: inline-flex;
+  gap: 0.4rem;
+  background: rgba(110, 18, 36, 0.05);
+  border: 1px solid var(--border-gold);
+  padding: 0.3rem;
+  border-radius: 30px;
+  max-width: 100%;
+  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+.itinerary-tab-btn {
+  background: transparent;
+  border: none;
+  border-radius: 22px;
+  padding: 0.5rem 0.9rem;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  color: var(--text-muted);
+  font-family: 'Josefin Sans', sans-serif;
+  position: relative;
+}
+
+.itinerary-tab-btn .tab-badge {
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+}
+
+.itinerary-tab-btn .tab-date {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--text-ink);
+  white-space: nowrap;
+}
+
+.itinerary-tab-btn.active {
+  background: var(--gold-gradient);
+  box-shadow: 0 4px 14px rgba(197, 155, 39, 0.35);
+}
+
+.itinerary-tab-btn.active .tab-badge,
+.itinerary-tab-btn.active .tab-date {
+  color: var(--dark-maroon) !important;
+}
+
+@media (max-width: 440px) {
+  .itinerary-tabs {
+    gap: 0.25rem;
+    padding: 0.2rem;
   }
+  .itinerary-tab-btn {
+    padding: 0.45rem 0.55rem;
+  }
+  .itinerary-tab-btn .tab-badge {
+    font-size: 0.56rem;
+  }
+  .itinerary-tab-btn .tab-date {
+    font-size: 0.78rem;
+  }
+}
+
+@keyframes tabFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tab-fade-in {
+  animation: tabFadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.events-cards-grid {
+  margin-top: 1.2rem;
+  text-align: left;
 }
 
 .event-luxury-card {
   background: rgba(255, 255, 255, 0.94);
   border: 1px solid var(--border-gold);
   border-radius: 14px;
-  padding: 2rem 1.5rem;
+  padding: 1.6rem 1.3rem;
   position: relative;
   box-shadow: var(--shadow-card);
   transition: transform 0.35s ease;
@@ -1076,41 +1157,31 @@ section {
 
 .event-actions-group {
   display: flex;
-  flex-direction: column;
-  gap: 0.55rem;
-  padding-top: 1.2rem;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  padding-top: 1rem;
+  margin-top: 0.6rem;
   border-top: 1px solid rgba(197, 155, 39, 0.2);
-}
-
-@media (min-width: 500px) {
-  .event-actions-group {
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
 }
 
 .event-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.4rem;
+  gap: 0.35rem;
   font-family: 'Josefin Sans', sans-serif;
   font-size: 0.72rem;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  padding: 0.65rem 0.95rem;
-  border-radius: 6px;
+  padding: 0.55rem 0.75rem;
+  border-radius: 20px;
   text-decoration: none;
   cursor: pointer;
   transition: all 0.25s ease;
-  width: 100%;
-}
-
-@media (min-width: 500px) {
-  .event-btn {
-    width: auto;
-    flex: 1 1 auto;
-  }
+  flex: 1 1 0;
+  min-width: 85px;
+  white-space: nowrap;
 }
 
 .event-btn-primary {
@@ -1531,60 +1602,81 @@ section {
 .rsvp-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.2rem;
-  margin: 2.2rem 0 1.2rem;
+  gap: 0.75rem;
+  margin: 1.4rem 0 1rem;
 }
 
-@media (min-width: 680px) {
+@media (min-width: 768px) {
   .rsvp-grid {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem;
   }
 }
 
 .rsvp-contact-card {
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(255, 255, 255, 0.94);
   border: 1px solid var(--border-gold);
   border-radius: 12px;
-  padding: 1.6rem 1.2rem;
+  padding: 0.85rem 1.1rem;
   box-shadow: var(--shadow-subtle);
   transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+}
+
+@media (min-width: 768px) {
+  .rsvp-contact-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.4rem 1rem;
+  }
+  .rsvp-contact-role {
+    margin-bottom: 0.9rem;
+  }
+}
+
+.rsvp-contact-info {
+  flex: 1;
 }
 
 .rsvp-contact-name {
   font-family: 'Playfair Display', serif;
-  font-size: 1.35rem;
+  font-size: 1.15rem;
   color: var(--primary-crimson);
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.15rem;
 }
 
 .rsvp-contact-role {
   font-family: 'Josefin Sans', sans-serif;
   font-size: 0.62rem;
-  letter-spacing: 0.28em;
+  letter-spacing: 0.18em;
   color: var(--gold-dark);
   text-transform: uppercase;
-  margin-bottom: 1rem;
+  margin-bottom: 0;
 }
 
 .rsvp-actions-row {
   display: flex;
-  justify-content: center;
-  gap: 0.5rem;
+  gap: 0.45rem;
+  flex-shrink: 0;
 }
 
 .contact-action-btn {
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
+  gap: 0.3rem;
   font-family: 'Josefin Sans', sans-serif;
-  font-size: 0.7rem;
+  font-size: 0.72rem;
   letter-spacing: 0.08em;
-  padding: 0.55rem 0.95rem;
+  padding: 0.45rem 0.8rem;
   border-radius: 20px;
   text-decoration: none;
   transition: all 0.25s ease;
-  font-weight: 500;
+  font-weight: 600;
+  white-space: nowrap;
 }
 
 .call-btn {
@@ -2003,10 +2095,28 @@ footer {
         मांगलिक उत्सवों के इस उल्लासमय सफर में आपकी गरिमामयी उपस्थिति सादर प्रार्थनीय है
       </p>
 
+      <!-- Interactive Itinerary Day Tabs -->
+      <div class="itinerary-tabs-wrap">
+        <div class="itinerary-tabs" role="tablist">
+          <button type="button" class="itinerary-tab-btn active" role="tab" aria-selected="true" onclick="switchEventDay(0, this)">
+            <span class="tab-badge">दिवस १ · 23 Nov</span>
+            <span class="tab-date">Haldi & Mehendi</span>
+          </button>
+          <button type="button" class="itinerary-tab-btn" role="tab" aria-selected="false" onclick="switchEventDay(1, this)">
+            <span class="tab-badge">दिवस २ · 24 Nov</span>
+            <span class="tab-date">Baraat & Vivah</span>
+          </button>
+          <button type="button" class="itinerary-tab-btn" role="tab" aria-selected="false" onclick="switchEventDay(2, this)">
+            <span class="tab-badge">दिवस ३ · 25 Nov</span>
+            <span class="tab-date">Bahu Agwan</span>
+          </button>
+        </div>
+      </div>
+
       <div class="events-cards-grid">
         
         <!-- Event 1: Haldi & Mehendi -->
-        <div class="event-luxury-card reveal delay-1">
+        <div class="event-luxury-card event-tab-pane tab-fade-in" id="eventCard0">
           <div class="event-side-accent" style="background:linear-gradient(180deg,#F7D070,#E8A598,#C59B27);"></div>
           
           <div class="event-header-row">
@@ -2041,19 +2151,19 @@ footer {
 
           <div class="event-actions-group">
             <a class="event-btn event-btn-primary" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Haldi+%26+Mehendi+-+Vibhor+%26+Vanshika+Wedding&dates=20261123T043000Z/20261123T163000Z&details=Haldi+and+Mehendi+celebration+of+Vibhor+and+Vanshika&location=Pushpanjali+Upawan,+Radha+Kund+Road,+Mathura,+UP+281004" target="_blank">
-              📅 Add to Calendar
+              📅 Calendar
             </a>
             <a class="event-btn event-btn-secondary" href="https://maps.google.com/?q=Pushpanjali+Upawan+Mathura" target="_blank">
-              🗺️ Google Maps
+              🗺️ Maps
             </a>
             <button class="event-btn event-btn-secondary" onclick="copyVenueAddress('Pushpanjali Upawan, Radha Kund Road, Mathura, UP 281004')">
-              📋 Copy Address
+              📋 Copy
             </button>
           </div>
         </div>
 
         <!-- Event 2: Baraat, Varmala & Wedding Ceremony -->
-        <div class="event-luxury-card reveal delay-2">
+        <div class="event-luxury-card event-tab-pane" id="eventCard1" style="display:none;">
           <div class="event-side-accent" style="background:linear-gradient(180deg,#6E1224,#C59B27,#A3334D);"></div>
           
           <div class="event-header-row">
@@ -2088,19 +2198,19 @@ footer {
 
           <div class="event-actions-group">
             <a class="event-btn event-btn-primary" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Baraat+%26+Wedding+Ceremony+-+Vibhor+%26+Vanshika&dates=20261124T133000Z/20261124T203000Z&details=Wedding+ceremony+and+Baraat+of+Vibhor+and+Vanshika&location=Uttam+Green,+Bainpur+Mustkil,+Agra,+UP+282001" target="_blank">
-              📅 Add to Calendar
+              📅 Calendar
             </a>
             <a class="event-btn event-btn-secondary" href="https://maps.google.com/?q=Uttam+Green+Agra" target="_blank">
-              🗺️ Google Maps
+              🗺️ Maps
             </a>
             <button class="event-btn event-btn-secondary" onclick="copyVenueAddress('Uttam Green, Bainpur Mustkil, Agra, UP 282001')">
-              📋 Copy Address
+              📋 Copy
             </button>
           </div>
         </div>
 
         <!-- Event 3: Bahu Agwan & Sangeet -->
-        <div class="event-luxury-card reveal delay-3">
+        <div class="event-luxury-card event-tab-pane" id="eventCard2" style="display:none;">
           <div class="event-side-accent" style="background:linear-gradient(180deg,#B8860B,#E8A598,#6E1224);"></div>
           
           <div class="event-header-row">
@@ -2131,13 +2241,13 @@ footer {
 
           <div class="event-actions-group">
             <a class="event-btn event-btn-primary" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Bahu+Agwan+%26+Sangeet+-+Vibhor+%26+Vanshika+Wedding&dates=20261125T103000Z/20261125T170000Z&details=Bahu+Agwan+and+Sangeet+celebration+of+Vibhor+and+Vanshika&location=Pushpanjali+Upawan,+Radha+Kund+Road,+Mathura,+UP+281004" target="_blank">
-              📅 Add to Calendar
+              📅 Calendar
             </a>
             <a class="event-btn event-btn-secondary" href="https://maps.google.com/?q=Pushpanjali+Upawan+Mathura" target="_blank">
-              🗺️ Google Maps
+              🗺️ Maps
             </a>
             <button class="event-btn event-btn-secondary" onclick="copyVenueAddress('Pushpanjali Upawan, Radha Kund Road, Mathura, UP 281004')">
-              📋 Copy Address
+              📋 Copy
             </button>
           </div>
         </div>
@@ -2306,14 +2416,14 @@ footer {
         <span class="all-family-tag">& समस्त कुलश्रेष्ठ परिवार</span>
       </div>
 
-      <div class="ornament-divider" style="margin-top:2.8rem;">
+      <div class="ornament-divider" style="margin-top:1.6rem;">
         <span class="ornament-symbol">❧</span>
       </div>
 
-      <h3 style="font-family:'Playfair Display',serif;font-size:clamp(1.5rem, 3.5vw, 1.8rem);color:var(--primary-crimson);margin-top:0.6rem;">
+      <h3 style="font-family:'Playfair Display',serif;font-size:clamp(1.35rem, 3.5vw, 1.7rem);color:var(--primary-crimson);margin-top:0.5rem;">
         RSVP & Hospitality · स्वागतकर्ता
       </h3>
-      <p style="font-size:1.02rem;color:var(--text-ink);max-width:620px;margin:0.4rem auto 1.4rem;line-height:1.7;">
+      <p style="font-size:0.98rem;color:var(--text-ink);max-width:620px;margin:0.3rem auto 1.2rem;line-height:1.65;">
         आपकी गरिमामयी उपस्थिति से हमारे उत्सव की शोभा द्विगुणित होगी। कृपया अपने शुभागमन से हमें अवश्य अवगत कराएं।
       </p>
 
@@ -2321,13 +2431,15 @@ footer {
         
         <!-- Contact 1 -->
         <div class="rsvp-contact-card reveal delay-1">
-          <h3 class="rsvp-contact-name">Pradeep Kumar</h3>
-          <p class="rsvp-contact-role">Host & Groom's Father (पिताजी)</p>
+          <div class="rsvp-contact-info">
+            <h3 class="rsvp-contact-name">Pradeep Kumar</h3>
+            <p class="rsvp-contact-role">Host & Groom's Father (पिताजी)</p>
+          </div>
           <div class="rsvp-actions-row">
-            <a class="contact-action-btn call-btn" href="tel:+919368224447">
-              📞 +91 93682 24447
+            <a class="contact-action-btn call-btn" href="tel:+919368224447" title="Call +91 93682 24447">
+              📞 Call
             </a>
-            <a class="contact-action-btn whatsapp-btn" href="https://wa.me/919368224447?text=Namaste%20Pradeep%20Ji!%20We%20received%20the%20wedding%20invitation%20for%20Vibhor%20%26%20Vanshika%20and%20are%20delighted%20to%20RSVP." target="_blank">
+            <a class="contact-action-btn whatsapp-btn" href="https://wa.me/919368224447?text=Namaste%20Pradeep%20Ji!%20We%20received%20the%20wedding%20invitation%20for%20Vibhor%20%26%20Vanshika%20and%20are%20delighted%20to%20RSVP." target="_blank" title="WhatsApp">
               💬 WhatsApp
             </a>
           </div>
@@ -2335,13 +2447,15 @@ footer {
 
         <!-- Contact 2 -->
         <div class="rsvp-contact-card reveal delay-2">
-          <h3 class="rsvp-contact-name">Babita Kulshreshtha</h3>
-          <p class="rsvp-contact-role">Host & Groom's Mother (माताजी)</p>
+          <div class="rsvp-contact-info">
+            <h3 class="rsvp-contact-name">Babita Kulshreshtha</h3>
+            <p class="rsvp-contact-role">Host & Groom's Mother (माताजी)</p>
+          </div>
           <div class="rsvp-actions-row">
-            <a class="contact-action-btn call-btn" href="tel:+918077118541">
-              📞 +91 80771 18541
+            <a class="contact-action-btn call-btn" href="tel:+918077118541" title="Call +91 80771 18541">
+              📞 Call
             </a>
-            <a class="contact-action-btn whatsapp-btn" href="https://wa.me/918077118541?text=Namaste%20Babita%20Ji!%20Heartiest%20congratulations%20on%20Vibhor%20%26%20Vanshika's%20wedding." target="_blank">
+            <a class="contact-action-btn whatsapp-btn" href="https://wa.me/918077118541?text=Namaste%20Babita%20Ji!%20Heartiest%20congratulations%20on%20Vibhor%20%26%20Vanshika's%20wedding." target="_blank" title="WhatsApp">
               💬 WhatsApp
             </a>
           </div>
@@ -2349,13 +2463,15 @@ footer {
 
         <!-- Contact 3 -->
         <div class="rsvp-contact-card reveal delay-3">
-          <h3 class="rsvp-contact-name">Vibhor Kulshrestha</h3>
-          <p class="rsvp-contact-role">The Groom (वर)</p>
+          <div class="rsvp-contact-info">
+            <h3 class="rsvp-contact-name">Vibhor Kulshrestha</h3>
+            <p class="rsvp-contact-role">The Groom (वर)</p>
+          </div>
           <div class="rsvp-actions-row">
-            <a class="contact-action-btn call-btn" href="tel:+917455916722">
-              📞 +91 74559 16722
+            <a class="contact-action-btn call-btn" href="tel:+917455916722" title="Call +91 74559 16722">
+              📞 Call
             </a>
-            <a class="contact-action-btn whatsapp-btn" href="https://wa.me/917455916722?text=Congratulations%20Vibhor!%20Super%20excited%20for%20your%20wedding%20with%20Vanshika!" target="_blank">
+            <a class="contact-action-btn whatsapp-btn" href="https://wa.me/917455916722?text=Congratulations%20Vibhor!%20Super%20excited%20for%20your%20wedding%20with%20Vanshika!" target="_blank" title="WhatsApp">
               💬 WhatsApp
             </a>
           </div>
@@ -2898,6 +3014,37 @@ function showToast(msg) {
   toastTimer = setTimeout(() => {
     toast.classList.remove('show');
   }, 3500);
+}
+
+function switchEventDay(index, btn) {
+  const tabs = document.querySelectorAll('.itinerary-tab-btn');
+  const cards = [
+    document.getElementById('eventCard0'),
+    document.getElementById('eventCard1'),
+    document.getElementById('eventCard2')
+  ];
+
+  tabs.forEach((tab, i) => {
+    if (i === index) {
+      tab.classList.add('active');
+      tab.setAttribute('aria-selected', 'true');
+    } else {
+      tab.classList.remove('active');
+      tab.setAttribute('aria-selected', 'false');
+    }
+  });
+
+  cards.forEach((card, i) => {
+    if (!card) return;
+    if (i === index) {
+      card.style.display = 'block';
+      card.classList.remove('tab-fade-in');
+      void card.offsetWidth;
+      card.classList.add('tab-fade-in');
+    } else {
+      card.style.display = 'none';
+    }
+  });
 }
 
 function copyVenueAddress(address) {
