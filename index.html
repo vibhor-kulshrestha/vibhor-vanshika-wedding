@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="envelope-active">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
@@ -7,27 +7,27 @@
 <!-- Primary Meta Tags -->
 <title>Vibhor & Vanshika | Wedding E-Invitation 2026</title>
 <meta name="title" content="Vibhor & Vanshika | Wedding E-Invitation 2026"/>
-<meta name="description" content="We joyfully invite you to celebrate the auspicious wedding ceremony of Vibhor & Vanshika on November 23–25, 2026 in Mathura & Agra."/>
+<meta name="description" content="We joyfully invite you to celebrate the auspicious wedding ceremony of Vibhor & Vanshika on November 24, 2026 in Agra."/>
 
 <!-- Open Graph / Facebook / WhatsApp -->
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://vibhorvanshika.online/"/>
-<meta property="og:title" content="Vibhor & Vanshika — Wedding Invitation | Nov 23–25, 2026"/>
-<meta property="og:description" content="We joyfully invite you to celebrate the wedding ceremony of Vibhor & Vanshika in Mathura & Agra. View celebrations, venues, and timings."/>
-<meta property="og:image" content="https://vibhorvanshika.online/og-preview.jpg?v=2"/>
-<meta property="og:image:secure_url" content="https://vibhorvanshika.online/og-preview.jpg?v=2"/>
+<meta property="og:title" content="Vibhor & Vanshika — Wedding Invitation | Nov 24, 2026"/>
+<meta property="og:description" content="We joyfully invite you to celebrate the wedding ceremony of Vibhor & Vanshika in Agra. View celebrations, venues, and timings."/>
+<meta property="og:image" content="https://vibhorvanshika.online/og-preview.jpg?v=3"/>
+<meta property="og:image:secure_url" content="https://vibhorvanshika.online/og-preview.jpg?v=3"/>
 <meta property="og:image:type" content="image/jpeg"/>
 <meta property="og:image:width" content="1200"/>
 <meta property="og:image:height" content="669"/>
 <meta property="og:site_name" content="Vibhor & Vanshika Wedding"/>
-<link rel="image_src" href="https://vibhorvanshika.online/og-preview.jpg?v=2"/>
+<link rel="image_src" href="https://vibhorvanshika.online/og-preview.jpg?v=3"/>
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:url" content="https://vibhorvanshika.online/"/>
-<meta name="twitter:title" content="Vibhor & Vanshika — Wedding Invitation"/>
-<meta name="twitter:description" content="We joyfully invite you to celebrate the wedding ceremony of Vibhor & Vanshika in Mathura & Agra."/>
-<meta name="twitter:image" content="https://vibhorvanshika.online/og-preview.jpg?v=2"/>
+<meta name="twitter:title" content="Vibhor & Vanshika — Wedding Invitation | Nov 24, 2026"/>
+<meta name="twitter:description" content="We joyfully invite you to celebrate the wedding ceremony of Vibhor & Vanshika in Agra."/>
+<meta name="twitter:image" content="https://vibhorvanshika.online/og-preview.jpg?v=3"/>
 
 <!-- Google Fonts Preload & Stylesheets -->
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -90,6 +90,14 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+html.envelope-active,
+body.envelope-active {
+  overflow: hidden !important;
+  height: 100% !important;
+  overscroll-behavior: none !important;
+  touch-action: none !important;
+}
+
 /* ══════════════════════════════════════════════════
    CANVAS PETAL & SPARKLE LAYER
 ══════════════════════════════════════════════════ */
@@ -118,6 +126,8 @@ body {
   padding: 1rem;
   transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1), visibility 1.2s ease;
   perspective: 1200px;
+  touch-action: none;
+  overscroll-behavior: contain;
 }
 
 #envelope-modal.opened {
@@ -1055,20 +1065,169 @@ section {
   animation: tabFadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-.events-cards-grid {
+/* ══════════════════════════════════════════════════
+   MUSIC AUTOPLAY PROMPT PILL (MOBILE-FIRST)
+══════════════════════════════════════════════════ */
+.music-prompt-pill {
+  position: fixed;
+  top: 1.2rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(-25px);
+  background: linear-gradient(135deg, rgba(110, 18, 36, 0.96) 0%, rgba(69, 10, 21, 0.96) 100%);
+  border: 1px solid rgba(232, 193, 90, 0.7);
+  color: #FFF2BF;
+  padding: 0.6rem 1.3rem;
+  border-radius: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(232, 193, 90, 0.4);
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.76rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  white-space: nowrap;
+}
+
+.music-prompt-pill.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+  animation: promptFloat 2.5s infinite ease-in-out;
+}
+
+@keyframes promptFloat {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(232, 193, 90, 0.4);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-4px);
+    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.6), 0 0 28px rgba(232, 193, 90, 0.7);
+  }
+}
+
+/* ══════════════════════════════════════════════════
+   SECTION 4: EVENTS CAROUSEL (SWIPE + ROTATE 1-2-3)
+══════════════════════════════════════════════════ */
+.events-carousel-wrap {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
   margin-top: 1.2rem;
-  text-align: left;
+  padding: 0.3rem 0 0.5rem;
+  touch-action: pan-y pinch-zoom;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.events-carousel-track {
+  display: flex;
+  width: 100%;
+  will-change: transform;
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .event-luxury-card {
-  background: rgba(255, 255, 255, 0.94);
+  flex: 0 0 100%;
+  width: 100%;
+  min-width: 100%;
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.95);
   border: 1px solid var(--border-gold);
   border-radius: 14px;
   padding: 1.6rem 1.3rem;
   position: relative;
   box-shadow: var(--shadow-card);
-  transition: transform 0.35s ease;
   overflow: hidden;
+  text-align: left;
+}
+
+.carousel-controls-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  margin-top: 1.2rem;
+}
+
+.carousel-nav-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid var(--border-gold);
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--primary-crimson);
+  font-size: 1.4rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 3px 10px rgba(110, 18, 36, 0.08);
+  transition: all 0.25s ease;
+}
+
+.carousel-nav-btn:hover {
+  background: var(--gold-gradient);
+  color: var(--dark-maroon);
+  transform: scale(1.08);
+  box-shadow: 0 4px 14px rgba(197, 155, 39, 0.35);
+}
+
+.carousel-dots-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.carousel-dot-btn {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid var(--border-gold);
+  background: rgba(110, 18, 36, 0.15);
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.carousel-dot-btn.active {
+  width: 24px;
+  border-radius: 10px;
+  background: var(--gold-gradient);
+  border-color: var(--gold-main);
+  box-shadow: 0 2px 8px rgba(197, 155, 39, 0.4);
+}
+
+.carousel-swipe-hint {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-top: 0.6rem;
+  opacity: 0.85;
+}
+
+.swipe-hand {
+  font-size: 0.85rem;
+  display: inline-block;
+  animation: handNudge 1.8s infinite ease-in-out;
+}
+
+@keyframes handNudge {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(3px); }
 }
 
 .event-side-accent {
@@ -1083,8 +1242,8 @@ section {
 .event-header-row {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  margin-bottom: 1rem;
+  justify-content: flex-end;
+  margin-bottom: 0.8rem;
 }
 
 .event-tag-badge {
@@ -1549,19 +1708,45 @@ section {
 
 .names-list li {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 1.08rem;
+  font-size: 1.06rem;
   color: var(--text-ink);
   font-weight: 500;
   display: flex;
-  align-items: center;
-  gap: 0.55rem;
-  padding-bottom: 0.35rem;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.3rem 0.5rem;
+  padding-bottom: 0.4rem;
   border-bottom: 1px dashed rgba(197, 155, 39, 0.2);
+  line-height: 1.4;
 }
 
 .names-list li span.bullet {
   color: var(--gold-main);
   font-size: 0.8rem;
+  flex-shrink: 0;
+  transform: translateY(-1px);
+}
+
+.relation-label {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  color: var(--gold-dark);
+  font-weight: 600;
+  text-transform: uppercase;
+  background: rgba(197, 155, 39, 0.12);
+  border: 1px solid rgba(197, 155, 39, 0.25);
+  padding: 0.12rem 0.45rem;
+  border-radius: 12px;
+  white-space: nowrap;
+  display: inline-block;
+}
+
+.cousin-chip .relation-label-chip {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--gold-dark);
+  margin-left: 0.3rem;
 }
 
 .eagerly-waiting-box {
@@ -1830,13 +2015,19 @@ footer {
 .delay-4 { transition-delay: 0.48s; }
 </style>
 </head>
-<body>
+<body class="envelope-active">
 
 <!-- Particle & Petals Canvas -->
 <canvas id="particle-canvas"></canvas>
 
 <!-- Toast Notification -->
 <div id="toast-notification">✦ Link copied to clipboard!</div>
+
+<!-- Floating Wedding Music Autoplay Prompt -->
+<div id="musicPromptPill" class="music-prompt-pill" onclick="triggerAudioUnlock(event)" role="button" aria-label="Play Wedding Music">
+  <span>🎵 Tap anywhere for Wedding Music</span>
+  <span>🌸</span>
+</div>
 
 <!-- Background Audio -->
 <audio id="bgMusic" loop preload="auto">
@@ -1846,8 +2037,8 @@ footer {
 <!-- ══════════════════════════════════════════════════
      3D WAX SEAL ENVELOPE INTRO (MOBILE-OPTIMIZED)
 ══════════════════════════════════════════════════ -->
-<div id="envelope-modal" aria-label="Wedding Invitation Envelope">
-  <div class="envelope-wrapper" id="envelopeCard" onclick="openInvitationEnvelope(event)">
+<div id="envelope-modal" aria-label="Wedding Invitation Envelope" onclick="openInvitationEnvelope(event)">
+  <div class="envelope-wrapper" id="envelopeCard">
     <div class="envelope-back">
       <div class="envelope-pattern">
         <!-- Top Section: Om & Auspicious Subtitle -->
@@ -1859,7 +2050,7 @@ footer {
         <!-- Bottom Section: Couple Names & Dates (Clear of the Seal) -->
         <div class="envelope-bottom-block">
           <h2 class="envelope-title">Vibhor & Vanshika</h2>
-          <div class="envelope-date">November 23 – 25, 2026</div>
+          <div class="envelope-date">November 24, 2026</div>
         </div>
       </div>
     </div>
@@ -1872,7 +2063,7 @@ footer {
   </div>
 
   <div class="envelope-prompt">
-    <span>✨ Tap Wax Seal to Open Invitation ✨</span>
+    <span>✨ Tap anywhere to Open Invitation ✨</span>
   </div>
   
   <button class="skip-intro-btn" onclick="openInvitationEnvelope(event, true)">Skip to Invitation ➔</button>
@@ -2138,159 +2329,182 @@ footer {
       <div class="itinerary-tabs-wrap">
         <div class="itinerary-tabs" role="tablist">
           <button type="button" class="itinerary-tab-btn active" role="tab" aria-selected="true" onclick="switchEventDay(0, this)">
-            <span class="tab-badge">दिवस १ · 23 Nov</span>
+            <span class="tab-badge">23 Nov</span>
             <span class="tab-date">Haldi & Mehendi</span>
           </button>
           <button type="button" class="itinerary-tab-btn" role="tab" aria-selected="false" onclick="switchEventDay(1, this)">
-            <span class="tab-badge">दिवस २ · 24 Nov</span>
+            <span class="tab-badge">24 Nov</span>
             <span class="tab-date">Baraat & Vivah</span>
           </button>
           <button type="button" class="itinerary-tab-btn" role="tab" aria-selected="false" onclick="switchEventDay(2, this)">
-            <span class="tab-badge">दिवस ३ · 25 Nov</span>
+            <span class="tab-badge">25 Nov</span>
             <span class="tab-date">Bahu Agwan</span>
           </button>
         </div>
       </div>
 
-      <div class="events-cards-grid">
-        
-        <!-- Event 1: Haldi & Mehendi -->
-        <div class="event-luxury-card event-tab-pane tab-fade-in" id="eventCard0">
-          <div class="event-side-accent" style="background:linear-gradient(180deg,#F7D070,#E8A598,#C59B27);"></div>
+      <!-- Interactive Carousel Viewport & Cards -->
+      <div class="events-carousel-wrap" id="eventsCarouselWrap">
+        <div class="events-carousel-track" id="eventsCarouselTrack">
           
-          <div class="event-header-row">
-            <span class="event-tag-badge">दिवस १ · Mathura</span>
-            <div class="event-icon-circle">🌿</div>
+          <!-- Event 1: Haldi & Mehendi -->
+          <div class="event-luxury-card" id="eventCard0">
+            <div class="event-side-accent" style="background:linear-gradient(180deg,#F7D070,#E8A598,#C59B27);"></div>
+            
+            <div class="event-header-row">
+              <div class="event-icon-circle">🌿</div>
+            </div>
+
+            <div class="event-card-subtitle-hi">हल्दी एवं मेहंदी उत्सव</div>
+            <h3 class="event-card-title">Haldi & Mehendi Utsav</h3>
+
+            <div class="event-detail-list">
+              <div class="event-detail-item">
+                <strong>तिथि</strong>
+                <span>सोमवार, २३ नवम्बर २०२६<br/><span style="font-size:0.85rem;color:var(--text-muted);">Monday, 23rd November 2026</span></span>
+              </div>
+              <div class="event-detail-item">
+                <strong>समय</strong>
+                <span>प्रातः हल्दी (10:00 AM) · सायं मेहंदी एवं संगीत (6:00 PM)</span>
+              </div>
+              <div class="event-detail-item">
+                <strong>स्थल</strong>
+                <span>
+                  <strong>पुष्पांजलि उपवन (Pushpanjali Upawan)</strong><br/>
+                  Radha Kund Road, Mathura, UP 281004
+                </span>
+              </div>
+              <div class="event-detail-item">
+                <strong>Attire</strong>
+                <span class="event-attire-pill">🌸 Rose Pinks, Magenta & Marigold Gold</span>
+              </div>
+            </div>
+
+            <div class="event-actions-group">
+              <a class="event-btn event-btn-primary" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Haldi+%26+Mehendi+-+Vibhor+%26+Vanshika+Wedding&dates=20261123T043000Z/20261123T163000Z&details=Haldi+and+Mehendi+celebration+of+Vibhor+and+Vanshika&location=Pushpanjali+Upawan,+Radha+Kund+Road,+Mathura,+UP+281004" target="_blank">
+                📅 Calendar
+              </a>
+              <a class="event-btn event-btn-secondary" href="https://maps.google.com/?q=Pushpanjali+Upawan+Mathura" target="_blank">
+                🗺️ Maps
+              </a>
+              <button class="event-btn event-btn-secondary" onclick="copyVenueAddress('Pushpanjali Upawan, Radha Kund Road, Mathura, UP 281004')">
+                📋 Copy
+              </button>
+            </div>
           </div>
 
-          <div class="event-card-subtitle-hi">हल्दी एवं मेहंदी उत्सव</div>
-          <h3 class="event-card-title">Haldi & Mehendi Utsav</h3>
+          <!-- Event 2: Baraat, Varmala & Wedding Ceremony -->
+          <div class="event-luxury-card" id="eventCard1">
+            <div class="event-side-accent" style="background:linear-gradient(180deg,#6E1224,#C59B27,#A3334D);"></div>
+            
+            <div class="event-header-row">
+              <div class="event-icon-circle">🥁</div>
+            </div>
 
-          <div class="event-detail-list">
-            <div class="event-detail-item">
-              <strong>तिथि</strong>
-              <span>सोमवार, २३ नवम्बर २०२६<br/><span style="font-size:0.85rem;color:var(--text-muted);">Monday, 23rd November 2026</span></span>
+            <div class="event-card-subtitle-hi">शुभ पाणिग्रहण संस्कार</div>
+            <h3 class="event-card-title">Baraat & Wedding Ceremony</h3>
+
+            <div class="event-detail-list">
+              <div class="event-detail-item">
+                <strong>तिथि</strong>
+                <span>मंगलवार, २४ नवम्बर २०२६<br/><span style="font-size:0.85rem;color:var(--text-muted);">Tuesday, 24th November 2026</span></span>
+              </div>
+              <div class="event-detail-item">
+                <strong>समय</strong>
+                <span>बारात स्वागत (7:00 PM) · वरमाला एवं फेरे (8:30 PM) · प्रीतिभोज (Grand Feast)</span>
+              </div>
+              <div class="event-detail-item">
+                <strong>स्थल</strong>
+                <span>
+                  <strong>उत्तम ग्रीन (Uttam Green)</strong><br/>
+                  Bainpur Mustkil, Agra, UP 282001
+                </span>
+              </div>
+              <div class="event-detail-item">
+                <strong>Attire</strong>
+                <span class="event-attire-pill">👑 Regal Traditional & Ethnic Grandeur</span>
+              </div>
             </div>
-            <div class="event-detail-item">
-              <strong>समय</strong>
-              <span>प्रातः हल्दी (10:00 AM) · सायं मेहंदी एवं संगीत (6:00 PM)</span>
-            </div>
-            <div class="event-detail-item">
-              <strong>स्थल</strong>
-              <span>
-                <strong>पुष्पांजलि उपवन (Pushpanjali Upawan)</strong><br/>
-                Radha Kund Road, Mathura, UP 281004
-              </span>
-            </div>
-            <div class="event-detail-item">
-              <strong>Attire</strong>
-              <span class="event-attire-pill">🌸 Rose Pinks, Magenta & Marigold Gold</span>
+
+            <div class="event-actions-group">
+              <a class="event-btn event-btn-primary" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Baraat+%26+Wedding+Ceremony+-+Vibhor+%26+Vanshika&dates=20261124T133000Z/20261124T203000Z&details=Wedding+ceremony+and+Baraat+of+Vibhor+and+Vanshika&location=Uttam+Green,+Bainpur+Mustkil,+Agra,+UP+282001" target="_blank">
+                📅 Calendar
+              </a>
+              <a class="event-btn event-btn-secondary" href="https://maps.google.com/?q=Uttam+Green+Agra" target="_blank">
+                🗺️ Maps
+              </a>
+              <button class="event-btn event-btn-secondary" onclick="copyVenueAddress('Uttam Green, Bainpur Mustkil, Agra, UP 282001')">
+                📋 Copy
+              </button>
             </div>
           </div>
 
-          <div class="event-actions-group">
-            <a class="event-btn event-btn-primary" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Haldi+%26+Mehendi+-+Vibhor+%26+Vanshika+Wedding&dates=20261123T043000Z/20261123T163000Z&details=Haldi+and+Mehendi+celebration+of+Vibhor+and+Vanshika&location=Pushpanjali+Upawan,+Radha+Kund+Road,+Mathura,+UP+281004" target="_blank">
-              📅 Calendar
-            </a>
-            <a class="event-btn event-btn-secondary" href="https://maps.google.com/?q=Pushpanjali+Upawan+Mathura" target="_blank">
-              🗺️ Maps
-            </a>
-            <button class="event-btn event-btn-secondary" onclick="copyVenueAddress('Pushpanjali Upawan, Radha Kund Road, Mathura, UP 281004')">
-              📋 Copy
-            </button>
+          <!-- Event 3: Bahu Agwan & Sangeet -->
+          <div class="event-luxury-card" id="eventCard2">
+            <div class="event-side-accent" style="background:linear-gradient(180deg,#B8860B,#E8A598,#6E1224);"></div>
+            
+            <div class="event-header-row">
+              <div class="event-icon-circle">🎶</div>
+            </div>
+
+            <div class="event-card-subtitle-hi">वधू आगमन एवं संगीत संध्या</div>
+            <h3 class="event-card-title">Bahu Agwan & Sangeet</h3>
+
+            <div class="event-detail-list">
+              <div class="event-detail-item">
+                <strong>तिथि</strong>
+                <span>बुधवार, २५ नवम्बर २०२६<br/><span style="font-size:0.85rem;color:var(--text-muted);">Wednesday, 25th November 2026</span></span>
+              </div>
+              <div class="event-detail-item">
+                <strong>समय</strong>
+                <span>संगीत संध्या (4:00 PM) · प्रीतिभोज / Dinner (7:00 PM)</span>
+              </div>
+              <div class="event-detail-item">
+                <strong>स्थल</strong>
+                <span>
+                  <strong>पुष्पांजलि उपवन (Pushpanjali Upawan)</strong><br/>
+                  Radha Kund Road, Mathura, UP 281004
+                </span>
+              </div>
+            </div>
+
+            <div class="event-actions-group">
+              <a class="event-btn event-btn-primary" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Bahu+Agwan+%26+Sangeet+-+Vibhor+%26+Vanshika+Wedding&dates=20261125T103000Z/20261125T170000Z&details=Bahu+Agwan+and+Sangeet+celebration+of+Vibhor+and+Vanshika&location=Pushpanjali+Upawan,+Radha+Kund+Road,+Mathura,+UP+281004" target="_blank">
+                📅 Calendar
+              </a>
+              <a class="event-btn event-btn-secondary" href="https://maps.google.com/?q=Pushpanjali+Upawan+Mathura" target="_blank">
+                🗺️ Maps
+              </a>
+              <button class="event-btn event-btn-secondary" onclick="copyVenueAddress('Pushpanjali Upawan, Radha Kund Road, Mathura, UP 281004')">
+                📋 Copy
+              </button>
+            </div>
           </div>
+
         </div>
 
-        <!-- Event 2: Baraat, Varmala & Wedding Ceremony -->
-        <div class="event-luxury-card event-tab-pane" id="eventCard1" style="display:none;">
-          <div class="event-side-accent" style="background:linear-gradient(180deg,#6E1224,#C59B27,#A3334D);"></div>
+        <!-- Carousel Navigation Controls (Arrows + Indicator Dots) -->
+        <div class="carousel-controls-bar">
+          <button type="button" class="carousel-nav-btn prev-btn" onclick="prevEventCard()" aria-label="Previous Ceremony" title="Previous Ceremony">
+            <span>‹</span>
+          </button>
           
-          <div class="event-header-row">
-            <span class="event-tag-badge" style="background:#FFF0F2;">दिवस २ · Agra</span>
-            <div class="event-icon-circle">🥁</div>
+          <div class="carousel-dots-row">
+            <button type="button" class="carousel-dot-btn active" onclick="goToEventDay(0)" aria-label="Day 1 - Haldi & Mehendi"></button>
+            <button type="button" class="carousel-dot-btn" onclick="goToEventDay(1)" aria-label="Day 2 - Baraat & Vivah"></button>
+            <button type="button" class="carousel-dot-btn" onclick="goToEventDay(2)" aria-label="Day 3 - Bahu Agwan"></button>
           </div>
 
-          <div class="event-card-subtitle-hi">शुभ पाणिग्रहण संस्कार</div>
-          <h3 class="event-card-title">Baraat & Wedding Ceremony</h3>
-
-          <div class="event-detail-list">
-            <div class="event-detail-item">
-              <strong>तिथि</strong>
-              <span>मंगलवार, २४ नवम्बर २०२६<br/><span style="font-size:0.85rem;color:var(--text-muted);">Tuesday, 24th November 2026</span></span>
-            </div>
-            <div class="event-detail-item">
-              <strong>समय</strong>
-              <span>बारात स्वागत (7:00 PM) · वरमाला एवं फेरे (8:30 PM) · प्रीतिभोज (Grand Feast)</span>
-            </div>
-            <div class="event-detail-item">
-              <strong>स्थल</strong>
-              <span>
-                <strong>उत्तम ग्रीन (Uttam Green)</strong><br/>
-                Bainpur Mustkil, Agra, UP 282001
-              </span>
-            </div>
-            <div class="event-detail-item">
-              <strong>Attire</strong>
-              <span class="event-attire-pill">👑 Regal Traditional & Ethnic Grandeur</span>
-            </div>
-          </div>
-
-          <div class="event-actions-group">
-            <a class="event-btn event-btn-primary" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Baraat+%26+Wedding+Ceremony+-+Vibhor+%26+Vanshika&dates=20261124T133000Z/20261124T203000Z&details=Wedding+ceremony+and+Baraat+of+Vibhor+and+Vanshika&location=Uttam+Green,+Bainpur+Mustkil,+Agra,+UP+282001" target="_blank">
-              📅 Calendar
-            </a>
-            <a class="event-btn event-btn-secondary" href="https://maps.google.com/?q=Uttam+Green+Agra" target="_blank">
-              🗺️ Maps
-            </a>
-            <button class="event-btn event-btn-secondary" onclick="copyVenueAddress('Uttam Green, Bainpur Mustkil, Agra, UP 282001')">
-              📋 Copy
-            </button>
-          </div>
+          <button type="button" class="carousel-nav-btn next-btn" onclick="nextEventCard()" aria-label="Next Ceremony" title="Next Ceremony">
+            <span>›</span>
+          </button>
         </div>
 
-        <!-- Event 3: Bahu Agwan & Sangeet -->
-        <div class="event-luxury-card event-tab-pane" id="eventCard2" style="display:none;">
-          <div class="event-side-accent" style="background:linear-gradient(180deg,#B8860B,#E8A598,#6E1224);"></div>
-          
-          <div class="event-header-row">
-            <span class="event-tag-badge">दिवस ३ · Mathura</span>
-            <div class="event-icon-circle">🎶</div>
-          </div>
-
-          <div class="event-card-subtitle-hi">वधू आगमन एवं संगीत संध्या</div>
-          <h3 class="event-card-title">Bahu Agwan & Sangeet</h3>
-
-          <div class="event-detail-list">
-            <div class="event-detail-item">
-              <strong>तिथि</strong>
-              <span>बुधवार, २५ नवम्बर २०२६<br/><span style="font-size:0.85rem;color:var(--text-muted);">Wednesday, 25th November 2026</span></span>
-            </div>
-            <div class="event-detail-item">
-              <strong>समय</strong>
-              <span>संगीत संध्या (4:00 PM) · प्रीतिभोज / Dinner (7:00 PM)</span>
-            </div>
-            <div class="event-detail-item">
-              <strong>स्थल</strong>
-              <span>
-                <strong>पुष्पांजलि उपवन (Pushpanjali Upawan)</strong><br/>
-                Radha Kund Road, Mathura, UP 281004
-              </span>
-            </div>
-          </div>
-
-          <div class="event-actions-group">
-            <a class="event-btn event-btn-primary" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Bahu+Agwan+%26+Sangeet+-+Vibhor+%26+Vanshika+Wedding&dates=20261125T103000Z/20261125T170000Z&details=Bahu+Agwan+and+Sangeet+celebration+of+Vibhor+and+Vanshika&location=Pushpanjali+Upawan,+Radha+Kund+Road,+Mathura,+UP+281004" target="_blank">
-              📅 Calendar
-            </a>
-            <a class="event-btn event-btn-secondary" href="https://maps.google.com/?q=Pushpanjali+Upawan+Mathura" target="_blank">
-              🗺️ Maps
-            </a>
-            <button class="event-btn event-btn-secondary" onclick="copyVenueAddress('Pushpanjali Upawan, Radha Kund Road, Mathura, UP 281004')">
-              📋 Copy
-            </button>
-          </div>
+        <div class="carousel-swipe-hint">
+          <span class="swipe-hand">👈</span>
+          <span>Swipe card to open next ceremony</span>
+          <span class="swipe-hand">👉</span>
         </div>
-
       </div>
 
       <!-- Wedding Countdown Clock -->
@@ -2411,10 +2625,10 @@ footer {
           <p class="compliments-sub">हार्दिक शुभकामनाएं एवं सप्रेम स्नेह</p>
           
           <ul class="names-list">
-            <li><span class="bullet">✦</span> Ajay – Kanak</li>
-            <li><span class="bullet">✦</span> Sudhir – Ursala</li>
-            <li><span class="bullet">✦</span> Sandeep – Neelam</li>
-            <li><span class="bullet">✦</span> Rajiv – Rekha</li>
+            <li><span class="bullet">✦</span> Ajay – Kanak <span class="relation-label">(Tauji – Taiji)</span></li>
+            <li><span class="bullet">✦</span> Sudhir – Ursala <span class="relation-label">(Tauji – Taiji)</span></li>
+            <li><span class="bullet">✦</span> Sandeep – Neelam <span class="relation-label">(Tauji – Taiji)</span></li>
+            <li><span class="bullet">✦</span> Rajiv – Rekha <span class="relation-label">(Chacha – Chachi)</span></li>
           </ul>
         </div>
 
@@ -2427,11 +2641,10 @@ footer {
           <p class="compliments-sub">स्नेहाशीष एवं मंगलकामनाएं</p>
           
           <ul class="names-list">
-            <li><span class="bullet">✦</span> Praveena – Krishna Swaroop</li>
-            <li><span class="bullet">✦</span> Suman – Pradeep</li>
-            <li><span class="bullet">✦</span> Jagrati – Rajiv</li>
-            <li><span class="bullet">✦</span> Aarti – Sandeep</li>
-            <li><span class="bullet">✦</span> Bharti – Madhu</li>
+            <li><span class="bullet">✦</span> Praveena – Krishna Swaroop <span class="relation-label">(Buaji – Fufaji)</span></li>
+            <li><span class="bullet">✦</span> Suman – Pradeep <span class="relation-label">(Buaji – Fufaji)</span></li>
+            <li><span class="bullet">✦</span> Jagrati – Rajiv <span class="relation-label">(Buaji – Fufaji)</span></li>
+            <li><span class="bullet">✦</span> Aarti – Sandeep <span class="relation-label">(Buaji – Fufaji)</span></li>
           </ul>
         </div>
 
@@ -2442,7 +2655,7 @@ footer {
         <p class="eagerly-waiting-subtitle">दर्शनाभिलाषी एवं स्नेही</p>
         
         <div class="cousins-names-wrap">
-          <span class="cousin-chip">✨ Vanchhit</span>
+          <span class="cousin-chip">✨ Vanchhit & Tanya <span class="relation-label-chip">(Bhaiya – Bhabhi)</span></span>
           <span class="cousin-chip">✨ Vaibhav</span>
           <span class="cousin-chip">✨ Vedansh</span>
           <span class="cousin-chip">✨ Nayan</span>
@@ -2718,17 +2931,122 @@ const envelopeCard = document.getElementById('envelopeCard');
 const bgMusic = document.getElementById('bgMusic');
 const musicVisualizer = document.getElementById('musicVisualizer');
 const musicBtnLabel = document.getElementById('musicBtnLabel');
+const musicPromptPill = document.getElementById('musicPromptPill');
 let isAudioPlaying = false;
+let userManuallyPausedAudio = false;
+let envelopeOpened = false;
+let autoOpenTimer = null;
 
 bgMusic.volume = 0.45;
 
-function openInvitationEnvelope(e, skip = false) {
-  if(e) e.stopPropagation();
+function unlockPageScroll() {
+  document.documentElement.classList.remove('envelope-active');
+  document.body.classList.remove('envelope-active');
+}
 
+function showMusicPrompt() {
+  if (musicPromptPill && !isAudioPlaying && !userManuallyPausedAudio) {
+    musicPromptPill.classList.add('show');
+  }
+}
+
+function hideMusicPrompt() {
+  if (musicPromptPill) {
+    musicPromptPill.classList.remove('show');
+  }
+}
+
+function updateMusicUI(playing) {
+  isAudioPlaying = playing;
+  if (playing) {
+    if (musicVisualizer) musicVisualizer.classList.add('music-playing');
+    if (musicBtnLabel) musicBtnLabel.textContent = 'Pause';
+    hideMusicPrompt();
+  } else {
+    if (musicVisualizer) musicVisualizer.classList.remove('music-playing');
+    if (musicBtnLabel) musicBtnLabel.textContent = 'Play';
+  }
+}
+
+function playAudio() {
+  if (userManuallyPausedAudio) return;
+  const promise = bgMusic.play();
+  if (promise !== undefined) {
+    promise.then(() => {
+      updateMusicUI(true);
+      removeAudioUnlockListeners();
+    }).catch(err => {
+      console.log('Audio autoplay restricted by browser:', err);
+      updateMusicUI(false);
+      showMusicPrompt();
+      setupAudioUnlockListeners();
+    });
+  }
+}
+
+function triggerAudioUnlock(e) {
+  if (e && typeof e.stopPropagation === 'function') e.stopPropagation();
+  userManuallyPausedAudio = false;
+  bgMusic.play().then(() => {
+    updateMusicUI(true);
+    removeAudioUnlockListeners();
+  }).catch(() => {});
+}
+
+// Global gesture listeners: user touch/tap anywhere immediately starts audio
+function onGlobalUserGesture(e) {
+  if (isAudioPlaying || userManuallyPausedAudio) return;
+  if (e && e.target && typeof e.target.closest === 'function' && e.target.closest('#musicToggleBtn')) {
+    return; // Handled by toggle button
+  }
+  const promise = bgMusic.play();
+  if (promise !== undefined) {
+    promise.then(() => {
+      updateMusicUI(true);
+      removeAudioUnlockListeners();
+    }).catch(() => {});
+  }
+}
+
+const audioUnlockEvents = ['touchstart', 'touchend', 'click', 'pointerdown', 'keydown', 'wheel'];
+let isAudioListenersAttached = false;
+
+function setupAudioUnlockListeners() {
+  if (isAudioListenersAttached) return;
+  isAudioListenersAttached = true;
+  audioUnlockEvents.forEach(evt => {
+    window.addEventListener(evt, onGlobalUserGesture, { capture: true, passive: true });
+    document.addEventListener(evt, onGlobalUserGesture, { capture: true, passive: true });
+  });
+}
+
+function removeAudioUnlockListeners() {
+  if (!isAudioListenersAttached) return;
+  isAudioListenersAttached = false;
+  audioUnlockEvents.forEach(evt => {
+    window.removeEventListener(evt, onGlobalUserGesture, { capture: true });
+    document.removeEventListener(evt, onGlobalUserGesture, { capture: true });
+  });
+}
+
+// Attach gesture listener early so any initial interaction unlocks music
+setupAudioUnlockListeners();
+
+function openInvitationEnvelope(e, skip = false) {
+  if (envelopeOpened) return;
+  envelopeOpened = true;
+  if (autoOpenTimer) {
+    clearTimeout(autoOpenTimer);
+    autoOpenTimer = null;
+  }
+  if (e && typeof e.stopPropagation === 'function') e.stopPropagation();
+
+  userManuallyPausedAudio = false;
   playAudio();
 
   if (skip) {
     envelopeModal.classList.add('opened');
+    unlockPageScroll();
     return;
   }
 
@@ -2739,27 +3057,39 @@ function openInvitationEnvelope(e, skip = false) {
 
   setTimeout(() => {
     envelopeModal.classList.add('opened');
+    unlockPageScroll();
   }, 1100);
 }
 
-function playAudio() {
-  bgMusic.play().then(() => {
-    isAudioPlaying = true;
-    musicVisualizer.classList.add('music-playing');
-    musicBtnLabel.textContent = 'Pause';
-  }).catch(err => {
-    console.log('Audio autoplay restricted:', err);
-  });
+// Auto-open seal envelope after 2 seconds if user hasn't clicked yet
+autoOpenTimer = setTimeout(() => {
+  if (!envelopeOpened) {
+    openInvitationEnvelope(null, false);
+  }
+}, 2000);
+
+// Prevent touchmove or wheel events from scrolling background while modal is active
+if (envelopeModal) {
+  envelopeModal.addEventListener('touchmove', (e) => {
+    if (!envelopeOpened) e.preventDefault();
+  }, { passive: false });
+  envelopeModal.addEventListener('wheel', (e) => {
+    if (!envelopeOpened) e.preventDefault();
+  }, { passive: false });
 }
 
 function toggleAudioPlayback() {
   if (isAudioPlaying) {
     bgMusic.pause();
-    isAudioPlaying = false;
-    musicVisualizer.classList.remove('music-playing');
-    musicBtnLabel.textContent = 'Play';
+    userManuallyPausedAudio = true;
+    updateMusicUI(false);
+    hideMusicPrompt();
   } else {
-    playAudio();
+    userManuallyPausedAudio = false;
+    bgMusic.play().then(() => {
+      updateMusicUI(true);
+      removeAudioUnlockListeners();
+    }).catch(() => {});
   }
 }
 
@@ -3055,16 +3385,33 @@ function showToast(msg) {
   }, 3500);
 }
 
-function switchEventDay(index, btn) {
-  const tabs = document.querySelectorAll('.itinerary-tab-btn');
-  const cards = [
-    document.getElementById('eventCard0'),
-    document.getElementById('eventCard1'),
-    document.getElementById('eventCard2')
-  ];
+// ══════════════════════════════════════════════════
+// CELEBRATIONS & CEREMONIES CAROUSEL (SWIPE + ROTATE 1-2-3)
+// ══════════════════════════════════════════════════
+let currentSlide = 1; // Slide 1 corresponds to Day 0 (Haldi & Mehendi)
+let isTransitioning = false;
+let eventsAutoRotationTimer = null;
+let userInteractedWithEvents = false;
 
+function stopEventsAutoRotation() {
+  if (userInteractedWithEvents) return;
+  userInteractedWithEvents = true;
+  if (eventsAutoRotationTimer) {
+    clearInterval(eventsAutoRotationTimer);
+    eventsAutoRotationTimer = null;
+  }
+}
+
+function getEventDayFromSlide(slideIndex) {
+  if (slideIndex === 0) return 2;
+  if (slideIndex === 4) return 0;
+  return slideIndex - 1; // 1 -> 0, 2 -> 1, 3 -> 2
+}
+
+function updateTabsAndDots(dayIndex) {
+  const tabs = document.querySelectorAll('.itinerary-tab-btn');
   tabs.forEach((tab, i) => {
-    if (i === index) {
+    if (i === dayIndex) {
       tab.classList.add('active');
       tab.setAttribute('aria-selected', 'true');
     } else {
@@ -3073,18 +3420,259 @@ function switchEventDay(index, btn) {
     }
   });
 
-  cards.forEach((card, i) => {
-    if (!card) return;
-    if (i === index) {
-      card.style.display = 'block';
-      card.classList.remove('tab-fade-in');
-      void card.offsetWidth;
-      card.classList.add('tab-fade-in');
+  const dots = document.querySelectorAll('.carousel-dot-btn');
+  dots.forEach((dot, i) => {
+    if (i === dayIndex) {
+      dot.classList.add('active');
     } else {
-      card.style.display = 'none';
+      dot.classList.remove('active');
     }
   });
 }
+
+function moveToSlide(targetSlide, animate = true) {
+  const track = document.getElementById('eventsCarouselTrack');
+  if (!track) return;
+
+  if (animate) {
+    track.style.transition = 'transform 0.45s cubic-bezier(0.22, 1, 0.36, 1)';
+    isTransitioning = true;
+  } else {
+    track.style.transition = 'none';
+    isTransitioning = false;
+  }
+
+  currentSlide = targetSlide;
+  track.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+  const activeDay = getEventDayFromSlide(currentSlide);
+  updateTabsAndDots(activeDay);
+}
+
+function nextEventCard(fromUser = false) {
+  if (fromUser) {
+    stopEventsAutoRotation();
+    if (!isAudioPlaying && !userManuallyPausedAudio) onGlobalUserGesture();
+  }
+  if (isTransitioning) return;
+  moveToSlide(currentSlide + 1, true);
+}
+
+function prevEventCard(fromUser = false) {
+  if (fromUser) {
+    stopEventsAutoRotation();
+    if (!isAudioPlaying && !userManuallyPausedAudio) onGlobalUserGesture();
+  }
+  if (isTransitioning) return;
+  moveToSlide(currentSlide - 1, true);
+}
+
+function goToEventDay(dayIndex, fromUser = false) {
+  if (fromUser) {
+    stopEventsAutoRotation();
+    if (!isAudioPlaying && !userManuallyPausedAudio) onGlobalUserGesture();
+  }
+  if (isTransitioning) return;
+  // Day 0 -> Slide 1, Day 1 -> Slide 2, Day 2 -> Slide 3
+  moveToSlide(dayIndex + 1, true);
+}
+
+function switchEventDay(dayIndex, btn) {
+  goToEventDay(dayIndex, true);
+}
+
+function startEventsAutoRotation() {
+  if (userInteractedWithEvents || eventsAutoRotationTimer) return;
+  eventsAutoRotationTimer = setInterval(() => {
+    if (userInteractedWithEvents) {
+      clearInterval(eventsAutoRotationTimer);
+      eventsAutoRotationTimer = null;
+      return;
+    }
+    if (!isTransitioning) {
+      moveToSlide(currentSlide + 1, true);
+    }
+  }, 3800);
+}
+
+function initCelebrationsCarousel() {
+  const wrap = document.getElementById('eventsCarouselWrap');
+  const track = document.getElementById('eventsCarouselTrack');
+  const celebrationsSection = document.getElementById('section-3');
+  if (!wrap || !track) return;
+
+  // Setup infinite cloning:
+  // Track has 3 original cards: Card 0, Card 1, Card 2.
+  const originalCards = Array.from(track.children);
+  if (originalCards.length === 3) {
+    const cloneLast = originalCards[2].cloneNode(true);
+    cloneLast.removeAttribute('id');
+    cloneLast.setAttribute('aria-hidden', 'true');
+
+    const cloneFirst = originalCards[0].cloneNode(true);
+    cloneFirst.removeAttribute('id');
+    cloneFirst.setAttribute('aria-hidden', 'true');
+
+    track.insertBefore(cloneLast, originalCards[0]);
+    track.appendChild(cloneFirst);
+  }
+
+  // Set initial position to Slide 1 (Card 0)
+  currentSlide = 1;
+  track.style.transition = 'none';
+  track.style.transform = `translateX(-${currentSlide * 100}%)`;
+  void track.offsetHeight; // Force reflow
+  track.style.transition = 'transform 0.45s cubic-bezier(0.22, 1, 0.36, 1)';
+  updateTabsAndDots(0);
+
+  // Seamless jump on loop boundaries
+  track.addEventListener('transitionend', (e) => {
+    if (e.target !== track) return;
+    isTransitioning = false;
+    if (currentSlide === 4) {
+      // Slid forward to clone of Card 0 -> snap to real Card 0 (slide 1)
+      moveToSlide(1, false);
+    } else if (currentSlide === 0) {
+      // Slid backward to clone of Card 2 -> snap to real Card 2 (slide 3)
+      moveToSlide(3, false);
+    }
+  });
+
+  // Touch Swipe Gestures
+  let touchStartX = 0;
+  let touchStartY = 0;
+  let touchCurrentX = 0;
+  let isHorizontalSwipe = false;
+  let isGestureDecided = false;
+  let isTouching = false;
+
+  wrap.addEventListener('touchstart', (e) => {
+    if (e.touches.length !== 1) return;
+    if (isTransitioning) return;
+    isTouching = true;
+    isGestureDecided = false;
+    isHorizontalSwipe = false;
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+    touchCurrentX = touchStartX;
+  }, { passive: true });
+
+  wrap.addEventListener('touchmove', (e) => {
+    if (!isTouching || e.touches.length !== 1) return;
+    touchCurrentX = e.touches[0].clientX;
+    const touchCurrentY = e.touches[0].clientY;
+    const diffX = touchCurrentX - touchStartX;
+    const diffY = touchCurrentY - touchStartY;
+
+    if (!isGestureDecided) {
+      if (Math.abs(diffX) > 8 || Math.abs(diffY) > 8) {
+        isGestureDecided = true;
+        if (Math.abs(diffX) > Math.abs(diffY)) {
+          isHorizontalSwipe = true;
+          stopEventsAutoRotation();
+        } else {
+          isHorizontalSwipe = false;
+        }
+      }
+    }
+
+    if (isHorizontalSwipe) {
+      if (e.cancelable) e.preventDefault();
+      track.style.transition = 'none';
+      const wrapWidth = wrap.clientWidth || 360;
+      const currentOffsetPx = -currentSlide * wrapWidth;
+      track.style.transform = `translateX(${currentOffsetPx + diffX}px)`;
+    }
+  }, { passive: false });
+
+  function handleTouchEnd() {
+    if (!isTouching) return;
+    isTouching = false;
+    if (!isHorizontalSwipe) return;
+    isHorizontalSwipe = false;
+
+    const diffX = touchCurrentX - touchStartX;
+    const wrapWidth = wrap.clientWidth || 360;
+    const swipeThreshold = Math.min(wrapWidth * 0.18, 55);
+
+    track.style.transition = 'transform 0.45s cubic-bezier(0.22, 1, 0.36, 1)';
+
+    if (diffX < -swipeThreshold) {
+      nextEventCard(true);
+    } else if (diffX > swipeThreshold) {
+      prevEventCard(true);
+    } else {
+      moveToSlide(currentSlide, true);
+    }
+  }
+
+  wrap.addEventListener('touchend', handleTouchEnd, { passive: true });
+  wrap.addEventListener('touchcancel', handleTouchEnd, { passive: true });
+
+  // Mouse Drag (Desktop Testing)
+  let isPointerDown = false;
+  let pointerStartX = 0;
+  let pointerCurrentX = 0;
+
+  wrap.addEventListener('pointerdown', (e) => {
+    if (e.pointerType === 'touch') return;
+    if (isTransitioning) return;
+    if (e.target.closest('a, button')) return;
+    isPointerDown = true;
+    pointerStartX = e.clientX;
+    pointerCurrentX = pointerStartX;
+    stopEventsAutoRotation();
+  });
+
+  window.addEventListener('pointermove', (e) => {
+    if (!isPointerDown) return;
+    pointerCurrentX = e.clientX;
+    const diffX = pointerCurrentX - pointerStartX;
+    if (Math.abs(diffX) > 8) {
+      track.style.transition = 'none';
+      const wrapWidth = wrap.clientWidth || 360;
+      const currentOffsetPx = -currentSlide * wrapWidth;
+      track.style.transform = `translateX(${currentOffsetPx + diffX}px)`;
+    }
+  });
+
+  window.addEventListener('pointerup', (e) => {
+    if (!isPointerDown) return;
+    isPointerDown = false;
+    const diffX = pointerCurrentX - pointerStartX;
+    const wrapWidth = wrap.clientWidth || 360;
+    const swipeThreshold = Math.min(wrapWidth * 0.18, 55);
+
+    track.style.transition = 'transform 0.45s cubic-bezier(0.22, 1, 0.36, 1)';
+    if (diffX < -swipeThreshold) {
+      nextEventCard(true);
+    } else if (diffX > swipeThreshold) {
+      prevEventCard(true);
+    } else {
+      moveToSlide(currentSlide, true);
+    }
+  });
+
+  // Auto-Rotation Observer
+  if ('IntersectionObserver' in window && celebrationsSection) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !userInteractedWithEvents) {
+          startEventsAutoRotation();
+        } else {
+          if (eventsAutoRotationTimer) {
+            clearInterval(eventsAutoRotationTimer);
+            eventsAutoRotationTimer = null;
+          }
+        }
+      });
+    }, { threshold: 0.15 });
+    observer.observe(celebrationsSection);
+  } else {
+    startEventsAutoRotation();
+  }
+}
+initCelebrationsCarousel();
 
 function copyVenueAddress(address) {
   navigator.clipboard.writeText(address).then(() => {
@@ -3095,7 +3683,7 @@ function copyVenueAddress(address) {
 }
 
 function shareWeddingInvitation() {
-  const shareText = "Hi family! Sharing the venue, timing, and celebration details for Vibhor & Vanshika’s Wedding (Nov 23–25, 2026 in Mathura & Agra) so we have them handy:\n\n📍 View full details here: https://vibhorvanshika.online/";
+  const shareText = "Hi family! Sharing the venue, timing, and celebration details for Vibhor & Vanshika’s Wedding (Nov 24, 2026 in Agra) so we have them handy:\n\n📍 View full details here: https://vibhorvanshika.online/";
 
   if (navigator.share) {
     navigator.share({
