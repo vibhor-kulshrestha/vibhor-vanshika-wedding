@@ -1276,29 +1276,8 @@ footer {
         </div>
       </div>
 
-      <!-- DAY 3: 25 NOV -->
-      <div class="event-item-card">
-        <span class="event-day-badge">बुधवार, 25 नवम्बर 2026</span>
-        <div class="event-subitem">
-          <span class="event-name">🌸 वधू आगमन : </span>
-          <span class="event-time">प्रातः बेला</span>
-        </div>
-        <div class="event-subitem">
-          <span class="event-name">🎶 महिला संगीत : </span>
-          <span class="event-time">सायं 4.00 बजे</span>
-        </div>
-        <div class="event-subitem">
-          <span class="event-name">🍽️ प्रीतिभोज : </span>
-          <span class="event-time">सायं 6.00 बजे</span>
-        </div>
-        <div class="event-venue-block">
-          <strong>कार्यक्रम स्थल : </strong>निज निवास (पुष्पांजलि उपवन, महोली रोड, मथुरा)
-        </div>
-        <div class="event-btn-row">
-          <a class="mini-action-btn" href="https://maps.google.com/?q=Pushpanjali+Upawan+Mathura" target="_blank">🗺️ Maps</a>
-          <a class="mini-action-btn" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Mahila+Sangeet+%26+Preetibhoj+-+Vibhor+%26+Vanshika&dates=20261125T103000Z/20261125T163000Z&location=Pushpanjali+Upawan,+Mathura" target="_blank">📅 Calendar</a>
-        </div>
-      </div>
+      <!-- Secure Slot for Day 3 (Mounted only for Group 1) -->
+      <div id="day3Slot"></div>
 
     </div>
 
@@ -1892,14 +1871,65 @@ function copyVenueAddress(addr) {
   });
 }
 
+// ══════════════════════════════════════════════════
+// SECURE ACCESS & CRYPTOGRAPHIC PAYLOAD (GROUP 1 vs GROUP 2)
+// ══════════════════════════════════════════════════
+const ENCRYPTED_DAY3 = "L9B/OUfAfOqFATpDh/5nLiG3WNE21MrTAgp4wUCxVh21qKzgQDlNvEcjF0izJgZkkuGRsKRV+4S8JSL6wc1ZM+r6b53oKUHldgT4CgaXYtmED+zitXAMJKTW4bIuxflzlXpE3JBKZYQdIIRAQRDIgoMgl/7Wfbyf3qXJx7XmG/jeFhkXApV21tVhNyVDDrKtMPFX69ENiKxs2BSS3jwoL5sEzF1Zh6cFFNi0ZRpGHN9nbUKwZna7XXCPajGBBkA+7eTx07iDrTTudJIaON09oFiymX06MqdqLufb32a91Mf5XodBpamG4U26tEknWuKWU53uaOBODnyN5dLIlHnkqMlV7wS4qV/V6C11worCGwOBV1EQ8cl3QgDRILt0DqUecq1SdkPyO+nX3YnVGN7fXB8VcEtb8bXzc8UdobTdUNJp4tJjoIDlmNoYdD7lOKxanZR7jxd1aZTD+ev8VHteYs9vR788w/QTUTEgOvOgq/wja3vLGKq7IpZB1WVQgffZ1kGb8ZPQnMuic9YWMLXRrbdwGhNzykFK3SK1GX4AgRGMocZom5bazzN+rxEfREubC5Rwrnh6DyXGtEZ8y0JpSRVywJDbJbOiSNB5XcPsrujfpkoBIQJ0+qn86gmk/JhHb4UozeGX8ppm0J1rbZ+j2upwTrG5e7SvRYPI/Bp/fMagIPMrBxvvpO3QRvvfZIUuFaln47VWR7dv2mV5zBUDIAj2nzBZNot69WiCjjZxutL401ZXFiguPh++0ZaPu0JGS/zo1tWIfnzDu+OEoUgzrfuhjvfeU4rDBW15OSLJx1WJ6dfLtRLwSYwiW/iBc+2QJin8mxmWEQdAFBG1+XrKZc/6QTr5Y145X+G6dk0cXR6x2kKWdI1++dsGWZtiMHEAoG/9K/Czw01C3O04J805CqjU3BNT7Iu/hUE/ZKb5owrW1WQEZHEi1TVrNgr5TqOcZqLMFW+rwbxM9cspr62OWGBqxm2GCcKpZkDBv1ddiurcQHVrnHjRkYLwdzSYXvDzBRgOMyImI7IGwE//nJy/QisenrnCQHysF3Ay/wUofODTpiPZR+J8TohFbOvFk9QGgIt8ReqmKd5kH4DzqefswdOAAIPMBbGU1PI7NIlbaLR+5WPsQtVW0tdGZ/PgcUIFiWv4CLiB5+aBHY6fawp6lXlBDBRUFmReuIy9YefQliQdLdmj3V0xqvX3ZYsXw9ep8jMjqMtC6D+6r84D3MUb9EG9a686u51cWz3QSMwkIqoHGmuurYKoU4A7e1ukoONXlf/53fVjSIvL7WtIiUtf1olIgH0Qbh14cLN5AnbAgAyLd1DHURbp14l0ZE9Eo1w8ar50JpSCYSgng8yDnxqJxlk9RuXBWxibMlG2JZ7tAPVlpeKj7zO1iimyNNPRFhrQcZIeolqy4ccUoKyZ4rvRunR+oh50qUrdDWVXBaNIu6D7iZeJgU+aiFLHKETdolYuIJmnVjOlS4LusXm8LY58clh64EGPdXcGuWd8fZNq5x1eqf8MzNYiAEMXMmwTRgpEPapo+r5HuzMeyr/AiYgEi+FOVvytljCA1W1pKSeiGmLE2rTr7QyfQmtXCancV8E0Ak8gr5WgbdwFXDsdD+EFp01V/NgKIgsl2IReGnpMG38/QvH6Z+LArLOANHQsDWbS6/ULK7zB3HWzfJcDZ1FHczg+MKUyj1PRTnY+PUKsgZUgFYrUpM8CqGAOp3oSTzDEskbiWxCdkqdJn6OGa3x3N/AQHeI2JLKEw1zdmtMldIIVbGc97IwLUrqdGip7f6tBycNaNAxdzeNJ";
+
+let isGroup1Authorized = false;
+
+async function checkAndUnlockGroupAccess() {
+  const params = new URLSearchParams(window.location.search);
+  const hashKey = window.location.hash.replace('#', '').trim();
+  const urlKey = (params.get('access') || params.get('k') || hashKey || '').trim().toLowerCase();
+  const storedKey = (localStorage.getItem('vv_access_pass') || '').trim().toLowerCase();
+  
+  const keyToTest = urlKey || storedKey;
+  if (!keyToTest) return;
+
+  try {
+    const enc = new TextEncoder();
+    const pwHash = await crypto.subtle.digest('SHA-256', enc.encode(keyToTest));
+    const decBinary = atob(ENCRYPTED_DAY3);
+    const decBuf = new Uint8Array(decBinary.length);
+    for (let i = 0; i < decBinary.length; i++) decBuf[i] = decBinary.charCodeAt(i);
+    const iv = decBuf.slice(0, 12);
+    const ciphertext = decBuf.slice(12);
+
+    const key = await crypto.subtle.importKey('raw', pwHash, { name: 'AES-GCM' }, false, ['decrypt']);
+    const decrypted = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: iv }, key, ciphertext);
+    const day3HTML = new TextDecoder().decode(decrypted);
+
+    // Mount Day 3 securely
+    const slot = document.getElementById('day3Slot');
+    if (slot && day3HTML) {
+      slot.innerHTML = day3HTML;
+      isGroup1Authorized = true;
+      localStorage.setItem('vv_access_pass', keyToTest);
+
+      // Clean the address bar without reloading so URL looks identical to Group 2's URL
+      if (urlKey && window.history && window.history.replaceState) {
+        window.history.replaceState({}, document.title, window.location.pathname);
+      }
+    }
+  } catch (err) {
+    // Silent fail if wrong key; Day 3 remains completely hidden
+    console.debug('Standard invitation loaded.');
+  }
+}
+checkAndUnlockGroupAccess();
+
 function shareWeddingInvitation() {
-  const text = "प्रणाम! विभोर एवं वंशिका के शुभ विवाह (24 नवम्बर 2026, आगरा) का निमंत्रण पत्र एवं कार्यक्रम विवरण यहाँ देखें:\n\n📍 https://vibhorvanshika.online/";
+  const shareUrl = isGroup1Authorized 
+    ? "https://vibhorvanshika.online/?access=utsav" 
+    : "https://vibhorvanshika.online/";
+  const text = `प्रणाम! विभोर एवं वंशिका के शुभ विवाह (24 नवम्बर 2026, आगरा) का निमंत्रण पत्र एवं कार्यक्रम विवरण यहाँ देखें:\n\n📍 ${shareUrl}`;
   if (navigator.share) {
     navigator.share({ text: text }).catch(() => {});
   } else {
     navigator.clipboard.writeText(text).then(() => {
       showToast('📋 निमंत्रण लिंक कॉपी हो गया! WhatsApp पर शेयर करें।');
-    }).catch(() => showToast('https://vibhorvanshika.online/'));
+    }).catch(() => showToast(shareUrl));
   }
 }
 
